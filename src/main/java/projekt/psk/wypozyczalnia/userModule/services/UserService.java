@@ -33,6 +33,44 @@ public class UserService {
         });
     }
 
+    public void updateUser2(User newUser, String id){
+        Optional<User> user = this.userRepository.findById(id);
+        user.ifPresent(usr -> {
+            if(newUser.getFirstname() != null) {
+                usr.setFirstname(newUser.getFirstname());
+            }
+            if(newUser.getLastname() != null) {
+                usr.setLastname(newUser.getLastname());
+            }
+            if(newUser.getPhone() != null) {
+                usr.setPhone(newUser.getPhone());
+            }
+            if(newUser.getCity() != null) {
+                usr.setCity(newUser.getCity());
+            }
+            if(newUser.getStreet() != null) {
+                usr.setStreet(newUser.getStreet());
+            }
+            if(newUser.getBuild() != null) {
+                usr.setBuild(newUser.getBuild());
+            }
+            if(newUser.getPhone() != null) {
+                usr.setBirth(newUser.getBirth());
+            }
+            if(newUser.getEmail() != null) {
+                usr.setEmail(newUser.getEmail());
+            }
+            if(newUser.getPostal() != null) {
+                usr.setPostal(newUser.getPostal());
+            }
+            this.userRepository.save(usr);
+        });
+    }
+
+    public void deleteUser(String id){
+        this.userRepository.deleteById(id);
+    }
+
     public void updateUserWithoutId(User user){
         this.userRepository.save(user);
     }

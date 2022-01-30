@@ -12,45 +12,44 @@ public class CarService {
     @Autowired
     CarRepository carRepository;
 
-
     public String saveCar(Car car){
-       return this.carRepository.save(car).getId();
+        return this.carRepository.save(car).getId();
     }
     public void deleteCar(String id){
         this.carRepository.deleteById(id);
     }
 
     public void updateCar(Car newCar, String id){
-        Optional<Car> pizza = this.carRepository.findById(id);
-        pizza.ifPresent(piz -> {
+        Optional<Car> cars = this.carRepository.findById(id);
+        cars.ifPresent(car -> {
             if(newCar.getName() != null){
-                piz.setName(newCar.getName());
+                car.setName(newCar.getName());
             }
             if(newCar.getCity() != null){
-                piz.setCity(newCar.getCity());
+                car.setCity(newCar.getCity());
             }
             if(newCar.getGearbox() != null){
-                piz.setGearbox(newCar.getGearbox());
+                car.setGearbox(newCar.getGearbox());
             }
             if(newCar.getDoors() != null){
-                piz.setDoors(newCar.getDoors());
+                car.setDoors(newCar.getDoors());
             }
             if(newCar.getFuel() != null){
-                piz.setFuel(newCar.getFuel());
+                car.setFuel(newCar.getFuel());
             }
             if(newCar.getPeople() != null){
-                piz.setPeople(newCar.getPeople());
+                car.setPeople(newCar.getPeople());
             }
             if(newCar.getCondition() != null){
-                piz.setCondition(newCar.getCondition());
+                car.setCondition(newCar.getCondition());
             }
             if(newCar.getPrice() != null){
-                piz.setPrice(newCar.getPrice());
+                car.setPrice(newCar.getPrice());
             }
             if(newCar.getImageUrl() != null){
-                piz.setImageUrl(newCar.getImageUrl());
+                car.setImageUrl(newCar.getImageUrl());
             }
-            this.carRepository.save(piz);
+            this.carRepository.save(car);
         });
     }
 
@@ -58,21 +57,9 @@ public class CarService {
         return this.carRepository.findAll();
     }
 
-    public List<Car> getAllOwnedCars(String id){
-        return this.carRepository.findByOwnerId(id);
-    }
-
-
-
-
-
     public Optional<Car> getCar(String id){
         return this.carRepository.findById(id);
     }
-
-
-
-
-    }
+}
 
 

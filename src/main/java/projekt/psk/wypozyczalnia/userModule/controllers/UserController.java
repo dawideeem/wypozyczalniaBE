@@ -39,6 +39,18 @@ public class UserController {
         return ResponseEntity.ok("Zaktualizowano pomyślnie");
     }
 
+    @PatchMapping("/update2/{id}")
+    public ResponseEntity<?> updateUser2(@PathVariable(value="id", required=true) String id, @RequestBody User user){
+        this.userService.updateUser2(user, id);
+        return ResponseEntity.ok("Zaktualizowano pomyślnie");
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable(value="id", required=true) String id){
+        this.userService.deleteUser(id);
+        return ResponseEntity.ok("Użytkownik został usunięty");
+    }
+
     @PostMapping("/activate")
     public void activateUser(@RequestBody String id){
         User user = this.userService.getUser(id).get();

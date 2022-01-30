@@ -30,7 +30,7 @@ public class CarController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteCar(@PathVariable(value="id", required=true) String id){
         this.carService.deleteCar(id);
-        return ResponseEntity.ok("Pizza została usunięta");
+        return ResponseEntity.ok("Auto zostało usunięte");
     }
 
     @GetMapping("/get/{id}")
@@ -42,11 +42,4 @@ public class CarController {
     public List<Car> getAllCars() {
         return this.carService.getAllCars();
     }
-
-    @GetMapping("/get-owned/{id}")
-    public List<Car> getAllOwnedCars(@PathVariable(value="id", required=true) String id) {
-        return this.carService.getAllOwnedCars(id);
-    }
-
-
 }

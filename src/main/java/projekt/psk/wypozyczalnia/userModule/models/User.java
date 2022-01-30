@@ -39,6 +39,30 @@ public class User {
     @Size(max = 120)
     private String password;
 
+    @Size(max = 20)
+    private String firstname;
+
+    @Size(max = 30)
+    private String lastname;
+
+    @Size(max = 12)
+    private String phone;
+
+    @Size(max = 20)
+    private String city;
+
+    @Size(max = 20)
+    private String street;
+
+    @Size(max = 20)
+    private String build;
+
+    @Size(max = 20)
+    private String birth;
+
+    @Size(max = 20)
+    private String postal;
+
     @DBRef
     private Set<Role> roles = new HashSet<>();
 
@@ -48,6 +72,7 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+
     }
 
     public void activate(){

@@ -1,4 +1,4 @@
-package projekt.psk.wypozyczalnia.messages;
+package projekt.psk.wypozyczalnia.fileModule.message;
 
 public class ResponseMessage {
     private String message;

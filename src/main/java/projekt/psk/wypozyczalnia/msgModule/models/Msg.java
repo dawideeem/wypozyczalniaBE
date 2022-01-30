@@ -1,56 +1,47 @@
-package projekt.psk.wypozyczalnia.carModule.models;
+package projekt.psk.wypozyczalnia.msgModule.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Car {
+public class Msg {
     @Id
     private String id;
 
     @NotBlank
-    @Size(max = 20)
-    private String name;
+    @Size(min = 1)
+    private String ownerId;
 
     @NotBlank
     @Size(max = 30)
-    private String city;
+    private String username;
 
     @NotBlank
     @Size(max = 30)
-    private String gearbox;
+    private String email;
 
     @NotBlank
     @Size(max = 30)
-    private String doors;
+    private String subject;
 
     @NotBlank
-    @Size(max = 30)
-    private String fuel;
+    private String userMessage[];
 
     @NotBlank
-    @Size(max = 30)
-    private String people;
+    private String adminMessage[];
+
 
     @NotBlank
-    @Size(max = 30)
-    private String condition;
+    private Boolean option;
 
-    @NotBlank
-    @Size(max = 120)
-    private String imageUrl;
-
-    @NotBlank
-    @Size(max = 10)
-    private String price;
 
 }
