@@ -18,10 +18,10 @@ import projekt.psk.wypozyczalnia.loginModule.security.services.UserDetailsImpl;
 public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
-    @Value("${goExplore.app.jwtSecret}")
+    @Value("${wypozyczalniaBE.app.jwtSecret}")
     private String jwtSecret;
 
-    @Value("${goExplore.app.jwtExpirationMs}")
+    @Value("${wypozyczalniaBE.app.jwtExpirationMs}")
     private int jwtExpirationMs;
 
     public String generateJwtToken(Authentication authentication) {
